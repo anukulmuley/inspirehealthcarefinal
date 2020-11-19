@@ -18,6 +18,7 @@ public class bookAppointment2 extends AppCompatActivity implements AdapterView.O
     boolean check = false;
     private CardView card9, card93, card10, card103, card11, card113, card1, card13, card2;
     TextView menu;
+    TextView confirmdetails;
     String[] Doctor = {"Select Doctor", "Doctor1", "Doctor2", "Doctor3"};
     String[] specialist = {"Select Specialist","Allergist","Anesthesiologist","Cardiologist","Dermatologist","Endocrinologist","Gastroenterologist","Hematologist","Immunologist","Internist","Neurologist","Pulmonologist","Oncologist","Pediatrician","Psychiatrist","Radiologist","Rheumatologist","Urologist"};
     @Override
@@ -35,7 +36,15 @@ public class bookAppointment2 extends AppCompatActivity implements AdapterView.O
                 finish();
             }
         });
-
+confirmdetails = findViewById(R.id.confirmAppointment);
+confirmdetails.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(bookAppointment2.this,Payment.class);
+        startActivity(intent);
+        finish();
+    }
+});
         card9 = findViewById(R.id.card9);
         card93 = findViewById(R.id.card93);
         card10 = findViewById(R.id.card10);

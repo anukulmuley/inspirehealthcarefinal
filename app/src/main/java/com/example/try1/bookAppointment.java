@@ -17,19 +17,29 @@ import java.util.Calendar;
 
 public class bookAppointment extends AppCompatActivity {
 
-    Button dateButton1, timeButton1 , next;
+    Button dateButton1, timeButton1 , next, bookedappointment;
     TextView dateTextView1, timeTextView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
+        getSupportActionBar().hide();
 
         next = findViewById(R.id.btn_next2);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(bookAppointment.this,bookAppointment2.class);
+                startActivity(intent);
+            }
+        });
+
+        bookedappointment = findViewById(R.id.bookedAppointment);
+        bookedappointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(bookAppointment.this,showBookedAppointment.class);
                 startActivity(intent);
             }
         });
