@@ -64,16 +64,19 @@ public class doctorSignIn extends AppCompatActivity {
                     if (Objects.equals(passwordFromDB, userEnteredPassword)) {
                         username2.setError(null);
                         //username.setErrorEnabled(false);
-
-                        doclogin_btn2 = findViewById(R.id.docbtnLogin);
-
-                        doclogin_btn2.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                moveToDashPage();
-
-                            }
-                        });
+//
+//                        doclogin_btn2 = findViewById(R.id.docbtnLogin);
+//
+//                        doclogin_btn2.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                moveToDashPage();
+//
+//                            }
+//                        });
+                        Intent intent=new Intent(doctorSignIn.this,doctorSide.class);
+                        startActivity(intent);
+                        finish();
                     }
                     else {
                         password2.setError("Wrong Password");

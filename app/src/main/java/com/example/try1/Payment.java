@@ -1,5 +1,6 @@
 package com.example.try1;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ public class Payment extends AppCompatActivity {
 
     EditText amountEt, noteEt, nameEt, upiIdEt;
     Button send;
+    Dialog dialog;
 
     final int UPI_PAYMENT = 0;
 
@@ -30,6 +33,32 @@ public class Payment extends AppCompatActivity {
 
         initializeViews();
 
+        dialog = new Dialog(Payment.this);
+        dialog.setContentView(R.layout.custom_dialog_confirmappointment);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.background));
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations= R.style.animation;
+
+        Button okey = dialog.findViewById(R.id.btn_okey);
+        Button cancel = dialog.findViewById(R.id.btn_cancel);
+
+        okey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Payment.this,"Okay",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Payment.this,"Cancelled",Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,9 +68,12 @@ public class Payment extends AppCompatActivity {
                 String name = nameEt.getText().toString();
                 String upiId = upiIdEt.getText().toString();
                 payUsingUpi(amount, upiId, name, note);
-//                Intent intent = new Intent(Payment.this,Dashboard.class);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(Payment.this,showBookedAppointment.class);
+                startActivity(intent);
+                finish();
+                dialog.show();
+
+
             }
         });
     }

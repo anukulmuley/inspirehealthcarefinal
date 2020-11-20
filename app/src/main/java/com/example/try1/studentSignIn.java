@@ -65,15 +65,18 @@ public class studentSignIn extends AppCompatActivity {
                         username.setError(null);
                         //username.setErrorEnabled(false);
 
-                        login_btn = findViewById(R.id.btnLogin);
-
-                        login_btn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                moveToDashPage();
-
-                            }
-                        });
+//                        login_btn = findViewById(R.id.btnLogin);
+//
+//                        login_btn.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                moveToDashPage();
+//
+//                            }
+//                        });
+                        Intent intent=new Intent(studentSignIn.this,patientSide.class);
+                        startActivity(intent);
+                        finish();
                     }
                     else {
                         password.setError("Wrong Password");

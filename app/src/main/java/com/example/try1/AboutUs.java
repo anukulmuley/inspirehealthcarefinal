@@ -41,7 +41,7 @@ public class AboutUs extends AppCompatActivity {
                 .addWebsite("https://www.linkedin.com/in/priti-maheshwari-a32b8b1bb","LinkedIn Priti Maheshwari")
                 .addGroup("CONNECT WITH US!")
                 .addEmail("contactus.inspirehealthcare@gmail.com")
-                .addGitHub("anukulmuley/final-code-for-InspireHealthcare")
+                .addGitHub("anukulmuley/inspirehealthcarefinal")
                 .addYoutube("UCbekhhidkzkGryM7m5Ys_w")   //Enter your youtube link here (replace with my channel link)
                 .addPlayStore("com.example.try1")   //Replace all this with your package name
                 .addInstagram("Inspire  Healthcare ")    //Your instagram id

@@ -1,10 +1,21 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/animation </item>
     </style>
 
+
+    <style name="animation">
+        <item name="android:windowEnterAnimation" tools:ignore="DuplicateDefinition">
+            @android:anim/fade_in
+        </item>
+        <item name="android:windowEnterAnimation">
+            @android:anim/fade_out
+        </item>
+
+    </style>
 </resources>

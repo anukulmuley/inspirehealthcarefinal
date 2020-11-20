@@ -7,15 +7,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class loginAs extends AppCompatActivity {
     private Button moveToAdmin, moveToStudents;
     TextView tv_aboutus, tv_healthtips , tv_covidstats;
+    private long backPressedTime;
+    private Toast backToast;
+
+
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else{
+           backToast = Toast.makeText(getBaseContext(),"Press back again to exit", Toast.LENGTH_SHORT);
+           backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
+
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_as);
         getSupportActionBar().hide();
+
 
         tv_aboutus = findViewById(R.id.tv_aboutus);
 
